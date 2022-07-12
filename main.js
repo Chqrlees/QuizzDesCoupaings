@@ -61,6 +61,7 @@ function selectAnswer(e) {
     const selectedBtn = e.target
     const correct = selectedBtn.dataset.correct
     setStatusClass(document.body, correct)
+    point(correct)
     Array.from(answerBtnElement.children).forEach(button => {
         setStatusClass(button, button.dataset.correct)
         })
@@ -72,12 +73,16 @@ function selectAnswer(e) {
         startBtn.classList.remove('hide')
     }
 }
+function point(correct) {
+    if (correct){
+        compt= compteur.innerText = compt + 1
+      }
+}
 
 function setStatusClass(element, correct) {
   clearStatusClass(element)
   if (correct) {
     element.classList.add('correct')
-    compt = compteur.innerText =  compt + 1 - 0.5
   } else {
     element.classList.add('wrong')
   }
